@@ -80,12 +80,26 @@ For Local Environment:
    - Update the file path to your local creditcard.csv location
     -Remove from google.colab import drive import
 
-## Expected Results
-Based on typical credit card fraud detection scenarios:
--    Precision: High (most fraud alerts are correct)
--    Recall: Moderate to High (catches most fraudulent transactions)
--    F1-Score: Balanced metric between precision and recall
--    MCC: Values near 1 indicate strong correlation with actual fraud
+## Key Insight
+Dataset Overview
+ -   Total Transactions: 284,807
+ -   Fraudulent Transactions: 492 (0.172% of total)
+  -  Valid Transactions: 284,315 (99.828% of total)
+  -  Highly Imbalanced Dataset: Fraud cases represent only 1 in every 578 transactions
+## Confusion Matrix Results
+
+|              | Predicted: Normal | Predicted: Fraud |
+|--------------|-------------------|------------------|
+| **Actual: Normal**  | 22,763           | 22               |
+| **Actual: Fraud**   | 3                | 37               |
+
+*Based on test set predictions (20% of sampled data)*
+
+### Performance Breakdown:
+- **True Negatives (Normal correctly identified)**: 22,763 transactions
+- **False Positives (Normal flagged as fraud)**: 22 transactions
+- **False Negatives (Fraud missed)**: 3 transactions  
+- **True Positives (Fraud correctly caught)**: 37 transactions
 
 ## Limitations & Future Improvements
 -    Imbalanced Data: Consider SMOTE or other oversampling techniques
